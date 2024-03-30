@@ -74,3 +74,7 @@ where `config_spec` is one of {`autoencoder_kl_8x8x64`(f=32, d=64), `autoencoder
 
 For training VQ-regularized models, see the [taming-transformers](https://github.com/CompVis/taming-transformers) 
 repository.
+
+
+## References
+- https://medium.com/the-generator/a-basic-variational-autoencoder-in-pytorch-trained-on-the-celeba-dataset-f29c75316b26
