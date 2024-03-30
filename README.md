@@ -518,4 +518,10 @@ The models can then be found in `models/ldm/<model_spec>`.
 
 ```
 
+## Useful references (Inpanting)
+- https://openaccess.thecvf.com/content/CVPR2023/papers/Xie_SmartBrush_Text_and_Shape_Guided_Object_Inpainting_With_Diffusion_Model_CVPR_2023_paper.pdf
+- https://huggingface.co/runwayml/stable-diffusion-inpainting
+- https://huggingface.co/docs/diffusers/using-diffusers/inpaint
+
+
 
