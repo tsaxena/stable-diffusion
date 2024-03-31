@@ -1,6 +1,14 @@
 
 # STAGE1: Autoencoder
+## What?
 
+## Why?
+Reduce the compute, need to move from pixel space to latent space. 
+<Add more details from paper here>
+
+## How?
+
+### Custom Training of Autoencoder
 Training on your own dataset can be beneficial to get better tokens and hence better images for your domain.
 Those are the steps to follow to make this work:
 1. install the repo with `conda env create -f environment.yaml`, `conda activate sd` and `pip install -e .`
@@ -10,20 +18,41 @@ Those are the steps to follow to make this work:
 4. run `python main.py --base configs/custom_vqgan.yaml -t True --gpus 0,1` to
    train on two GPUs. Use `--gpus 0,` (with a trailing comma) to train on a single GPU.
 
-### Data preparation
+### (1) Data preparation (LSUN)
 
-### Faces 
-For downloading the CelebA-HQ and FFHQ datasets, proceed as described in the [taming-transformers](https://github.com/CompVis/taming-transformers#celeba-hq) 
-repository.
-
-
-### LSUN 
-
-The LSUN datasets can be conveniently downloaded via the script available [here](https://github.com/fyu/lsun).
+- The LSUN datasets can be conveniently downloaded via the script available [here](https://github.com/fyu/lsun).
+```
+python3 download_lsun.py 
+```
 We performed a custom split into training and validation images, and provide the corresponding filenames
 at [https://ommer-lab.com/files/lsun.zip](https://ommer-lab.com/files/lsun.zip). 
 After downloading, extract them to `./data/lsun`. The beds/cats/churches subsets should
 also be placed/symlinked at `./data/lsun/bedrooms`/`./data/lsun/cats`/`./data/lsun/churches`, respectively.
+
+
+## Model Training
+
+Logs and checkpoints for trained models are saved to `logs/<START_DATE_AND_TIME>_<config_spec>`.
+
+### Training autoencoder models
+
+Configs for training a KL-regularized autoencoder on ImageNet are provided at `configs/autoencoder`.
+Training can be started by running
+```
+CUDA_VISIBLE_DEVICES=<GPU_ID> python main.py --base configs/autoencoder/<config_spec>.yaml -t --gpus 0,    
+```
+where `config_spec` is one of {`autoencoder_kl_8x8x64`(f=32, d=64), `autoencoder_kl_16x16x16`(f=16, d=16), 
+`autoencoder_kl_32x32x4`(f=8, d=4), `autoencoder_kl_64x64x3`(f=4, d=3)}.
+
+For training VQ-regularized models, see the [taming-transformers](https://github.com/CompVis/taming-transformers) 
+repository.
+
+
+
+## Misc (More datasets)
+### Faces 
+For downloading the CelebA-HQ and FFHQ datasets, proceed as described in the [taming-transformers](https://github.com/CompVis/taming-transformers#celeba-hq) 
+repository.
 
 ### ImageNet
 The code will try to download (through [Academic
@@ -59,22 +88,7 @@ will only happen if neither a folder
 if you want to force running the dataset preparation again.
 
 
-## Model Training
 
-Logs and checkpoints for trained models are saved to `logs/<START_DATE_AND_TIME>_<config_spec>`.
-
-### Training autoencoder models
-
-Configs for training a KL-regularized autoencoder on ImageNet are provided at `configs/autoencoder`.
-Training can be started by running
-```
-CUDA_VISIBLE_DEVICES=<GPU_ID> python main.py --base configs/autoencoder/<config_spec>.yaml -t --gpus 0,    
-```
-where `config_spec` is one of {`autoencoder_kl_8x8x64`(f=32, d=64), `autoencoder_kl_16x16x16`(f=16, d=16), 
-`autoencoder_kl_32x32x4`(f=8, d=4), `autoencoder_kl_64x64x3`(f=4, d=3)}.
-
-For training VQ-regularized models, see the [taming-transformers](https://github.com/CompVis/taming-transformers) 
-repository.
 
 
 ## References
