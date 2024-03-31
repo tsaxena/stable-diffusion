@@ -1,1 +1,3 @@
-
+Two stages for training diffusion models:
+Stage 1: Train autoencoder
+Stage 2: Train diffusion model
