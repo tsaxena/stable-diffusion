@@ -6,6 +6,7 @@ This repo is a copy of [Stable Diffusion ](https://github.com/CompVis/stable-dif
 
 Thus, the repo aims to reproduce SD on different generation task. I highly recommend you to read the config to understand each fuction.
 
+* [Task0 Autoencoder finetuning](#Unconditional)
 * [Task1 Unconditional Image Synthesis](#Unconditional)
 * [Task2 Class-conditional Image Synthesis](#Class-conditional)
 * [Task3 Inpainting](#Inpainting)
