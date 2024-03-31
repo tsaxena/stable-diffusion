@@ -19,7 +19,15 @@ Those are the steps to follow to make this work:
 4. run `python main.py --base configs/custom_vqgan.yaml -t True --gpus 0,1` to
    train on two GPUs. Use `--gpus 0,` (with a trailing comma) to train on a single GPU.
 
-### (1) Data preparation (LSUN)
+   
+
+### Data preparation 
+
+#### Pokemon
+- 1000 images
+- 
+
+#### LSUN-Bedrooms
 
 - The LSUN datasets can be conveniently downloaded via the script available [here](https://github.com/fyu/lsun).
 ```
@@ -29,6 +37,8 @@ We performed a custom split into training and validation images, and provide the
 at [https://ommer-lab.com/files/lsun.zip](https://ommer-lab.com/files/lsun.zip). 
 After downloading, extract them to `./data/lsun`. The beds/cats/churches subsets should
 also be placed/symlinked at `./data/lsun/bedrooms`/`./data/lsun/cats`/`./data/lsun/churches`, respectively.
+
+
 
 
 ## Model Training
