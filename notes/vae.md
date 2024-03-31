@@ -30,6 +30,7 @@ Those are the steps to follow to make this work:
 #### LSUN-Bedrooms
 
 - The LSUN datasets can be conveniently downloaded via the script available [here](https://github.com/fyu/lsun).
+- 
 ```
 python3 download_lsun.py 
 ```
@@ -104,3 +105,4 @@ if you want to force running the dataset preparation again.
 
 ## References
 - https://medium.com/the-generator/a-basic-variational-autoencoder-in-pytorch-trained-on-the-celeba-dataset-f29c75316b26
+- https://ammesatyajit.medium.com/a-crash-course-on-vaes-vq-vaes-and-vae-gans-3fdcc40b059e
