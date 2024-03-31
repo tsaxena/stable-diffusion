@@ -16,6 +16,7 @@ Those are the steps to follow to make this work:
 For downloading the CelebA-HQ and FFHQ datasets, proceed as described in the [taming-transformers](https://github.com/CompVis/taming-transformers#celeba-hq) 
 repository.
 
+
 ### LSUN 
 
 The LSUN datasets can be conveniently downloaded via the script available [here](https://github.com/fyu/lsun).
