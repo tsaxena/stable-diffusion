@@ -1,9 +1,10 @@
 
 # STAGE1: Autoencoder
 ## What?
+Finetune autoencoder for the domain
 
 ## Why?
-Reduce the compute, need to move from pixel space to latent space. 
+A variational autoencoder tries to encode the input data to a latent space much smaller than the original input (e.g. Pokemon input image is 128x128x3, latent space is 256), from which it then tries to decode it back into the original image. By trying to do so, it learns to create this latent space so that it fits the most important information it needs. It is then possible to travel through the latent space and change aspects of the input image or try to generate new images.
 <Add more details from paper here>
 
 ## How?
